@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "q319ykqzHGDPL1F9YRL0Ku5Wc86PIR0JBpGj41mVuD8=",
+  "Source": "SalesWebsite.Backend",
+  "BasePath": "_content/SalesWebsite.Backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
