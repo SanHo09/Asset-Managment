@@ -1,0 +1,12 @@
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\bin\Debug\net6.0\SalesWebsite.Shared.deps.json
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\bin\Debug\net6.0\SalesWebsite.Shared.dll
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\bin\Debug\net6.0\SalesWebsite.Shared.pdb
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\obj\Debug\net6.0\SalesWebsite.Shared.csproj.AssemblyReference.cache
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\obj\Debug\net6.0\SalesWebsite.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\obj\Debug\net6.0\SalesWebsite.Shared.AssemblyInfoInputs.cache
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\obj\Debug\net6.0\SalesWebsite.Shared.AssemblyInfo.cs
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\obj\Debug\net6.0\SalesWebsite.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\obj\Debug\net6.0\SalesWebsite.Shared.dll
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\obj\Debug\net6.0\refint\SalesWebsite.Shared.dll
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\obj\Debug\net6.0\SalesWebsite.Shared.pdb
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\obj\Debug\net6.0\ref\SalesWebsite.Shared.dll

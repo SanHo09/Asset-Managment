@@ -43,7 +43,7 @@ namespace SalesWebsite.Backend.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categorys");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Customer", b =>
@@ -130,22 +130,22 @@ namespace SalesWebsite.Backend.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Customersid")
+                    b.Property<int>("Customerid")
                         .HasColumnType("int");
 
                     b.Property<float>("NumberOfStar")
                         .HasColumnType("real");
 
-                    b.Property<int>("ProductsId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Customersid");
+                    b.HasIndex("Customerid");
 
-                    b.HasIndex("ProductsId");
+                    b.HasIndex("ProductId");
 
-                    b.ToTable("Rate");
+                    b.ToTable("Rates");
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Product", b =>
@@ -161,21 +161,21 @@ namespace SalesWebsite.Backend.Data.Migrations
 
             modelBuilder.Entity("SalesWebsite.Models.Rate", b =>
                 {
-                    b.HasOne("SalesWebsite.Models.Customer", "Customers")
+                    b.HasOne("SalesWebsite.Models.Customer", "Customer")
                         .WithMany("rates")
-                        .HasForeignKey("Customersid")
+                        .HasForeignKey("Customerid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SalesWebsite.Models.Product", "Products")
+                    b.HasOne("SalesWebsite.Models.Product", "Product")
                         .WithMany("Rates")
-                        .HasForeignKey("ProductsId")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Customers");
+                    b.Navigation("Customer");
 
-                    b.Navigation("Products");
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Category", b =>

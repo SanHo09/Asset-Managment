@@ -9,10 +9,10 @@ namespace SalesWebsite.Backend.Data
 {
     public class SalesWebsiteBackendContext : DbContext
     {
-        public DbSet<Category>? Categorys { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Rate> Rate { get; set; }
+        public DbSet<Rate> Rates { get; set; }
         public SalesWebsiteBackendContext (DbContextOptions<SalesWebsiteBackendContext> options)
             : base(options)
         {

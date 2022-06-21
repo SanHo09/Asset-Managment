@@ -263,3 +263,9 @@ C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWeb
 C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.Backend\obj\Debug\net6.0\ref\SalesWebsite.Backend.dll
 C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.Backend\obj\Debug\net6.0\SalesWebsite.Backend.RazorAssemblyInfo.cache
 C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.Backend\obj\Debug\net6.0\SalesWebsite.Backend.RazorAssemblyInfo.cs
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.Backend\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.Backend\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.Backend\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.Backend\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.Backend\bin\Debug\net6.0\SalesWebsite.Shared.dll
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.Backend\bin\Debug\net6.0\SalesWebsite.Shared.pdb
