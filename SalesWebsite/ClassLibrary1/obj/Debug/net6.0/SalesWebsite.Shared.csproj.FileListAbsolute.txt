@@ -10,3 +10,5 @@ C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWeb
 C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\obj\Debug\net6.0\refint\SalesWebsite.Shared.dll
 C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\obj\Debug\net6.0\SalesWebsite.Shared.pdb
 C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\obj\Debug\net6.0\ref\SalesWebsite.Shared.dll
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\bin\Debug\net6.0\SalesWebsite.Shared.runtimeconfig.json
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\ClassLibrary1\obj\Debug\net6.0\SalesWebsite.Shared.genruntimeconfig.cache

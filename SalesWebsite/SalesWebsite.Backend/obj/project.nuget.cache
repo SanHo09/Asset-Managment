@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9QmoU9Q7JgIk5a9Q5NAY3x+Jpm4uxjGU7ecK8F9FEQTfIXw5D0PFMIYj27bOxlAuQY9xOLVLUc0sRsxyNzq1nw==",
+  "dgSpecHash": "eidLgfOed5pxjgxPGgSiOhGYhbclBGQF193ULyanR8/CG3FN2fXP4rvWnFr5qc5uq27aJXm+myKd+0fopUaRgg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sang\\Desktop\\NashTech_2022_Training\\Rookie_ASM\\Rookies_Batch_5\\SalesWebsite\\SalesWebsite.Backend\\SalesWebsite.Backend.csproj",
   "expectedPackageFiles": [
@@ -111,6 +111,7 @@
     "C:\\Users\\Sang\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Sang\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\Sang\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
+    "C:\\Users\\Sang\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\Sang\\.nuget\\packages\\system.composition\\1.0.31\\system.composition.1.0.31.nupkg.sha512",
     "C:\\Users\\Sang\\.nuget\\packages\\system.composition.attributedmodel\\1.0.31\\system.composition.attributedmodel.1.0.31.nupkg.sha512",
     "C:\\Users\\Sang\\.nuget\\packages\\system.composition.convention\\1.0.31\\system.composition.convention.1.0.31.nupkg.sha512",

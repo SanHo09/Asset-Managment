@@ -15,8 +15,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.CustomerSite
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Areas/Identity/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Pages/Categories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Pages/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Views/Home/Index.cshtml]
@@ -29,10 +33,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Views/Shared/_LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Views/Shared/_ValidationScriptsPartial.cshtml]
