@@ -29,20 +29,19 @@ namespace SalesWebsite.Backend.Controllers
         }
 
         [HttpGet]
-
-        public async Task<PagedResponseDto<Category>> findAllAsync([FromQuery]CategoryCriteriaDto categoryCriteriaDto)
+        public async Task<PagedResponseDto<CategoryDto>> findAllAsync([FromQuery]CategoryCriteriaDto categoryCriteriaDto)
         {
            
             var categoryQuery = _context.Categories
                 .Where(i => !i.IsDeleted)
-                .AsQueryable();
+                .AsQueryable(); 
             // Lọc category theo tên
             categoryQuery = CategoryFilter(categoryQuery, categoryCriteriaDto);
-            // Tạo Extension để paging
+            // Chuyển dữ liệu từ truy vấn tổng hợp lại thành các thông tin: số trang, tổng số trang, sản phẩm
             var pagedCategories = await categoryQuery.AsNoTracking().paginateAsync(categoryCriteriaDto);
 
-            var categoryDto = _mapper.Map<IEnumerable<Category>>(pagedCategories.Items);
-            return new PagedResponseDto<Category>
+            var categoryDto = _mapper.Map<IEnumerable<CategoryDto>>(pagedCategories.Items);
+            return new PagedResponseDto<CategoryDto>
             {
                 CurrentPage = pagedCategories.CurrentPage,
                 TotalPages = pagedCategories.TotalPages,
@@ -59,7 +58,7 @@ namespace SalesWebsite.Backend.Controllers
         [HttpGet("{id}")]
         public ActionResult<CategoryVm> findByID(int id)
         {
-            var category = _context.Categories.FirstOrDefault(i => i.Id == id && i.IsDeleted == false);
+            var category = _context.Categories.FirstOrDefault(i => i.Id == id && !i.IsDeleted);
             if(category == null)
             {
                 return NotFound();
@@ -79,16 +78,20 @@ namespace SalesWebsite.Backend.Controllers
         [HttpPost]
         public IActionResult create([FromForm] CategoryCreateRequest categoryCreateRequest)
         {
-            Category _category = new Category()
+            Category category = new Category()
             {
                 Name = categoryCreateRequest.Name,
                 Description = categoryCreateRequest.Description,
                 IsDeleted = false
             };
          
-            _context.Categories.Add(_category);
+            _context.Categories.Add(category);
             _context.SaveChanges();
-            return Ok();
+
+            return CreatedAtAction("getCategory", new CategoryVm { Id = category.Id,
+                Name = category.Name,
+                Description = category.Description
+            });
         }
 
         [HttpPut("{id}")]
@@ -109,7 +112,7 @@ namespace SalesWebsite.Backend.Controllers
             }
             
             _context.SaveChanges();
-            return Ok();
+            return Ok(category);
         }
 
         [HttpDelete("{id}")]
@@ -127,13 +130,14 @@ namespace SalesWebsite.Backend.Controllers
 
             return Ok();
         }
+
         
         private IQueryable<Category> CategoryFilter(
             IQueryable<Category> categoriesQuery,
             CategoryCriteriaDto categoryCriteria)
         {
 
-            if(!String.IsNullOrEmpty(categoryCriteria.Search))
+            if(!String.IsNullOrEmpty(categoryCriteria.Search) && !categoryCriteria.Search.Contains("all"))
             {
                 categoriesQuery = categoriesQuery.Where(c => c.Name.Contains(categoryCriteria.Search));
             }

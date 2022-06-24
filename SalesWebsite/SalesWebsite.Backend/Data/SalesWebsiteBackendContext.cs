@@ -18,6 +18,9 @@ namespace SalesWebsite.Backend.Data
         {
         }
 
-        
+        internal object FindAsync(int categoryId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

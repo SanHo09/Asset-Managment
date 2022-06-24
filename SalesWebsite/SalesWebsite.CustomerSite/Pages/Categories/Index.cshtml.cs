@@ -4,6 +4,7 @@ using SalesWebsite.CustomerSite.ViewModel;
 
 namespace SalesWebsite.CustomerSite.Pages.Categories
 {
+
     public class IndexModel : PageModel
     {
         
