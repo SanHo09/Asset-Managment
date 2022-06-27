@@ -1,0 +1,24 @@
+﻿@page
+@model SalesWebsite.CustomerSite.Pages.Products.IndexModel;
+@{
+    ViewData["title"] = "Shepoo Wakanda| Trang chủ";
+    Layout = "_ProductLayout";
+}
+
+@foreach(var i in Model.products.Items)
+{
+    <div class="card col-sm-2 product">
+
+        <a href="./Products/Detail?id=@i.Id" class="">
+            <img class="card-img-top" src="~/images/product/@i.image" alt="Card image cap">
+        </a>
+        <div class="card-body">
+
+            <p class="card-text">@i.Name</p>
+            <span class="price">@i.Price đ</span>
+            <span class="number">Đã bán: @((float)i.Sold/1000) k</span>
+
+        </div>
+    </div>
+}
+

@@ -1,8 +1,17 @@
+using SalesWebsite.CustomerSite.Extensions;
+using SalesWebsite.CustomerSite.Extensions.ServiceCollection;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddServices();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddCustomHttpClient(builder.Configuration);
 builder.Services.AddControllersWithViews();
-builder.Services.AddRazorPages();
+// set default route (home page) is products page
+builder.Services.AddRazorPages().AddRazorPagesOptions(options =>
+{
+    options.Conventions.AddPageRoute("/Products/Index", "");
+});
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddControllersWithViews();
 builder.Services.Configure<RouteOptions>(routeOptions =>
@@ -27,13 +36,16 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+
+
 app.UseEndpoints(enpoints =>
 {
-    enpoints.MapRazorPages();  
+    enpoints.MapRazorPages();
     enpoints.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
+app.MapRazorPages();
 
 
 

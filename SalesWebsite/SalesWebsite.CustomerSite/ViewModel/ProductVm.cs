@@ -10,7 +10,7 @@
         public DateTime CreatedDate { get; set; }
         public DateTime UpdateDate { get; set; }
         public float Rate { get; set; }
-        public bool IsDeleted { get; set; }
+        public int? Sold { get; set; } = 0;
 
         virtual public CategoryVm Category { get; set; }
         virtual public List<RateVm> Rates {get; set;}

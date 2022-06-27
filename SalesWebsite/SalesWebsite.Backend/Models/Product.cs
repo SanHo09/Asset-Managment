@@ -14,6 +14,7 @@ namespace SalesWebsite.Models
         public DateTime UpdateDate { get; set; }
         public float Rate { get; set; }
         public bool IsDeleted { get; set; }
+        public int? Sold { get; set; } = 0;
 
         virtual public Category Category { get; set; }
         virtual public List<Rate> Rates {get; set;}

@@ -27,7 +27,7 @@ namespace SalesWebsite.Backend.Extensions
                     PagingSortingConstants.ASC : 
                     PagingSortingConstants.DESC;
                 var orderString = $"{criteriaDto.SortColumn} {sortOrder}";
-                query.OrderBy(orderString); // dùng linq Dynamic
+                query = query.OrderBy(orderString); // dùng linq Dynamic
 
             }
 

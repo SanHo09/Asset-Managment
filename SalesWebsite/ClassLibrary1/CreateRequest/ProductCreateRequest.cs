@@ -14,7 +14,7 @@ namespace SalesWebsite.Shared.CreateRequest
         public string image { get; set; }
         public float Rate { get; set; }
         public bool IsDeleted { get; set; }
-
+        public int? Sold { get; set; } = 0;
         virtual public int CategoryId { get; set; }
         
     }

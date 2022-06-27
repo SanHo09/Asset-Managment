@@ -10,7 +10,7 @@ using SalesWebsite.Shared.Dto.Category;
 using Microsoft.EntityFrameworkCore;
 using SalesWebsite.Backend.Extensions;
 using Microsoft.AspNetCore.Cors;
-
+using System.Linq.Dynamic.Core;
 namespace SalesWebsite.Backend.Controllers
 {
     [Route("api/[controller]")]
@@ -50,7 +50,7 @@ namespace SalesWebsite.Backend.Controllers
                 SortColumn = categoryCriteriaDto.SortColumn,
                 SortOrder = categoryCriteriaDto.SortOrder,
                 Limit = categoryCriteriaDto.Limit,
-                Items = categoryDto
+                Items = categoryDto/*.AsQueryable().OrderBy("id desc")*/
             };
         }
 
@@ -139,7 +139,8 @@ namespace SalesWebsite.Backend.Controllers
 
             if(!String.IsNullOrEmpty(categoryCriteria.Search) && !categoryCriteria.Search.Contains("all"))
             {
-                categoriesQuery = categoriesQuery.Where(c => c.Name.Contains(categoryCriteria.Search));
+                categoriesQuery = categoriesQuery.Where(c => c.Name.Contains(categoryCriteria.Search) || 
+                                                c.Id.ToString().Contains(categoryCriteria.Search));
             }
             return categoriesQuery;
         }

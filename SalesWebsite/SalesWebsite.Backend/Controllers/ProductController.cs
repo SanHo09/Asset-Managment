@@ -30,7 +30,7 @@ namespace SalesWebsite.Backend.Controllers
         }
 
         [HttpGet]
-        public async Task<PagedResponseDto<ProductDto>> findAllAsync([FromQuery]ProductCriteriaDto productCriteriaDto)
+        public async Task<PagedResponseDto<ProductDto>> FindAllAsync([FromQuery]ProductCriteriaDto productCriteriaDto)
         {
             var productQuery = _context.Products
                 .Where(i => !i.IsDeleted)
@@ -57,7 +57,7 @@ namespace SalesWebsite.Backend.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult findById(int id)
+        public IActionResult FindById(int id)
         {
             var product = _context.Products.FirstOrDefault(i => i.Id == id && !i.IsDeleted);
             if(product == null)
@@ -75,6 +75,7 @@ namespace SalesWebsite.Backend.Controllers
                 Quantity = product.Quantity,
                 Price = product.Price,
                 Rate = product.Rate,
+                Sold = product.Sold,
 
                 Category = _mapper.Map<CategoryVm>(product.Category),
                 Rates = _mapper.Map<List<RateVm>>(product.Rates)
@@ -84,7 +85,7 @@ namespace SalesWebsite.Backend.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> createAsync([FromForm]ProductCreateRequest productCreateRequest)
+        public async Task<IActionResult> CreateAsync([FromForm]ProductCreateRequest productCreateRequest)
         {
             var category = await _context.Categories.FindAsync(productCreateRequest.CategoryId);
             if(category == null)
@@ -101,7 +102,7 @@ namespace SalesWebsite.Backend.Controllers
                 IsDeleted = false,
                 Rate = 0,
                 image = productCreateRequest.image,
-                
+                Sold = productCreateRequest.Sold,
                 Category = category,
             };
 
@@ -111,7 +112,7 @@ namespace SalesWebsite.Backend.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> updateAsync(int id, ProductCreateRequest productCreateRequest)
+        public async Task<IActionResult> UpdateAsync(int id, ProductCreateRequest productCreateRequest)
         {
             var product = await _context.Products.FindAsync(id);
             var category = await _context.Categories.FindAsync(productCreateRequest.CategoryId);
@@ -149,7 +150,7 @@ namespace SalesWebsite.Backend.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> deleteAsync(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
             var product = await _context.Products.FindAsync(id);
             if (product == null)
@@ -167,7 +168,8 @@ namespace SalesWebsite.Backend.Controllers
         {
             if(!String.IsNullOrEmpty(productCriteria.Search))
             {
-                productQuery = productQuery.Where(i => i.Name.Contains(productCriteria.Search));
+                productQuery = productQuery.Where(i => i.Name.Contains(productCriteria.Search) ||
+                                                        i.Id.ToString().Contains(productCriteria.Search));
             }
             return productQuery;
         }

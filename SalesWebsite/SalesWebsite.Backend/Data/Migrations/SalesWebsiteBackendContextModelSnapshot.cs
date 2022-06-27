@@ -43,7 +43,7 @@ namespace SalesWebsite.Backend.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Customer", b =>
@@ -71,7 +71,7 @@ namespace SalesWebsite.Backend.Data.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Customers", (string)null);
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Product", b =>
@@ -104,6 +104,9 @@ namespace SalesWebsite.Backend.Data.Migrations
                     b.Property<float>("Rate")
                         .HasColumnType("real");
 
+                    b.Property<int?>("Sold")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdateDate")
                         .HasColumnType("datetime2");
 
@@ -115,7 +118,7 @@ namespace SalesWebsite.Backend.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Rate", b =>
@@ -145,7 +148,7 @@ namespace SalesWebsite.Backend.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Rates", (string)null);
+                    b.ToTable("Rates");
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Product", b =>
