@@ -9,6 +9,7 @@ namespace SalesWebsite.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public bool IsDeleted { get; set; }
-        virtual public List<Product> Products { get; set; }
+        public virtual List<Product> Products { get; set; }
+       
     }
 }

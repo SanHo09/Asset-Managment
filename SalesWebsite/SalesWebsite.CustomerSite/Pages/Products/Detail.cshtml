@@ -2,7 +2,7 @@
 @model SalesWebsite.CustomerSite.Pages.Products.DetailModel
 @{
     ViewData["title"] = "Shepoo Wakanda| Chi Tiết";
-    Layout = "_ProductDetailLayout";
+    Layout = "layout/_ProductDetailLayout";
 }
 
 <div class="container">
@@ -23,6 +23,9 @@
         <div class="col-sm-7" style="margin-top: 20px;">
             <div class="row product-title">
                 <legend><span class="badge bg-danger"> New</span> @Model.product.Name</legend>
+
+                <div>Loai San Pham: @Model.product.Category.Name</div>
+
             </div>
             <div class="row data">
                 <span class="rate">
@@ -129,3 +132,5 @@
 
     </div>
 </div>
+
+@await Component.InvokeAsync("ProductInformation", Model.product);

@@ -16,7 +16,7 @@ namespace SalesWebsite.Models
         public bool IsDeleted { get; set; }
         public int? Sold { get; set; } = 0;
 
-        virtual public Category Category { get; set; }
-        virtual public List<Rate> Rates {get; set;}
+        public virtual Category Category { get; set; }
+        public virtual List<Rate> Rates {get; set;}
     }
 }

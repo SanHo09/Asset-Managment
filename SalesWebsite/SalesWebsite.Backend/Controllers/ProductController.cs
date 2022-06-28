@@ -29,10 +29,17 @@ namespace SalesWebsite.Backend.Controllers
             _mapper = mapper;
         }
 
+        [HttpGet("findByCategory/{categoryId}")]
+        public IEnumerable<Product> FindByCategoryId(int id)
+        {
+            return _context.Products.Include(p => p.Category);
+        }
+
         [HttpGet]
         public async Task<PagedResponseDto<ProductDto>> FindAllAsync([FromQuery]ProductCriteriaDto productCriteriaDto)
         {
             var productQuery = _context.Products
+                .Include(p => p.Category)
                 .Where(i => !i.IsDeleted)
                 .AsQueryable();
 
@@ -59,7 +66,9 @@ namespace SalesWebsite.Backend.Controllers
         [HttpGet("{id}")]
         public IActionResult FindById(int id)
         {
-            var product = _context.Products.FirstOrDefault(i => i.Id == id && !i.IsDeleted);
+            var product = _context.Products
+                .Include(p => p.Category)
+                .FirstOrDefault(i => i.Id == id && !i.IsDeleted);
             if(product == null)
             {
                 return NotFound();

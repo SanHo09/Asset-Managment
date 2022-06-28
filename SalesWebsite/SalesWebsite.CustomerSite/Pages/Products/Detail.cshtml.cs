@@ -9,6 +9,7 @@ namespace SalesWebsite.CustomerSite.Pages.Products
     {
         private readonly IProductService _productService;
         private readonly IConfiguration _config;
+        
         public DetailModel(IProductService productService, IConfiguration config)
         {
             _productService = productService;

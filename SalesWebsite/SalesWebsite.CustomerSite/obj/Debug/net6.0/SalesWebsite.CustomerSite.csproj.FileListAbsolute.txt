@@ -32,4 +32,4 @@ C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWeb
 C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.CustomerSite\bin\Debug\net6.0\System.Net.Http.Formatting.dll
 C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.CustomerSite\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.CustomerSite\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
-C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.CustomerSite\obj\Debug\net6.0\scopedcss\Pages\Shared\_ProductLayout.cshtml.rz.scp.css
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.CustomerSite\obj\Debug\net6.0\scopedcss\Pages\Shared\layout\_ProductLayout.cshtml.rz.scp.css

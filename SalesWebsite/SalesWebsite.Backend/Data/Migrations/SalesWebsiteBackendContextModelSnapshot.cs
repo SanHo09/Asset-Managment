@@ -43,7 +43,7 @@ namespace SalesWebsite.Backend.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Customer", b =>
@@ -71,7 +71,7 @@ namespace SalesWebsite.Backend.Data.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customers", (string)null);
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Product", b =>
@@ -118,7 +118,7 @@ namespace SalesWebsite.Backend.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Rate", b =>
@@ -148,7 +148,7 @@ namespace SalesWebsite.Backend.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Rates");
+                    b.ToTable("Rates", (string)null);
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Product", b =>

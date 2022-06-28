@@ -10,6 +10,7 @@ namespace SalesWebsite.CustomerSite.Extensions
         {
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IRateService, RateService>();
         }
     }
 }

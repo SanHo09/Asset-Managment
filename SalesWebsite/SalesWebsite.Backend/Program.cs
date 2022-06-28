@@ -1,13 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SalesWebsite.Backend.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SalesWebsiteBackendContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SalesWebsiteBackendContext") ?? throw new InvalidOperationException("Connection string 'SalesWebsiteBackendContext' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SalesWebsiteBackendContext") 
+    ?? throw new InvalidOperationException("Connection string 'SalesWebsiteBackendContext' not found.")));
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

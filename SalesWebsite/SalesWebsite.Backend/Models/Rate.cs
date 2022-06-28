@@ -9,7 +9,7 @@ namespace SalesWebsite.Models
         public string Content { get; set; }
         public float NumberOfStar { get; set; }
 
-        public Product Product { get; set; }
-        public Customer Customer { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

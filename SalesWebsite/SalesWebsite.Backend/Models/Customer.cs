@@ -11,6 +11,6 @@ namespace SalesWebsite.Models
         public string FullName { get; set; }
         public bool Isdeleted { get; set; } = true;
 
-        virtual public List<Rate> rates { get; set; }
+        public virtual List<Rate> rates { get; set; }
     }
 }

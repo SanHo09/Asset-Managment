@@ -55,12 +55,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXGNvbW1vblxfSGVhZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Pages/Shared/_CategoriesLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9DYXRlZ29yaWVzTGF5b3V0LmNzaHRtbA==
+[C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Pages/Shared/Components/ProductInformation/ProductInformation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcUHJvZHVjdEluZm9ybWF0aW9uXFByb2R1Y3RJbmZvcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Pages/Shared/_ProductDetailLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Qcm9kdWN0RGV0YWlsTGF5b3V0LmNzaHRtbA==
+[C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Pages/Shared/layout/_CategoriesLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXGxheW91dFxfQ2F0ZWdvcmllc0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Pages/Shared/layout/_ProductDetailLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXGxheW91dFxfUHJvZHVjdERldGFpbExheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Pages/Shared/_ViewImports.cshtml]
@@ -91,9 +95,9 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Pages/Shared/_ProductLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Qcm9kdWN0TGF5b3V0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = b-3iyazmkos2
+[C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Pages/Shared/layout/_ProductLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXGxheW91dFxfUHJvZHVjdExheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-9znsmt29gm
 
 [C:/Users/Sang/Desktop/NashTech_2022_Training/Rookie_ASM/Rookies_Batch_5/SalesWebsite/SalesWebsite.CustomerSite/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
