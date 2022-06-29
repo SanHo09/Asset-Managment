@@ -9,6 +9,7 @@ namespace SalesWebsite.ViewModels
         public string Name { get; set; }
         public string Description { get; set; }
         
+        public List<ProductVm> Products { get; set; }
         
     }
 }

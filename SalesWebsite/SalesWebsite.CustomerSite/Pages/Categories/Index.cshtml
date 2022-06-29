@@ -2,6 +2,7 @@
 @model SalesWebsite.CustomerSite.Pages.Categories.IndexModel;
 @{
     ViewData["title"] = "Shepoo Wakanda  | Phân Loại ";
+    ViewData["categories"] = @Model.categories;
     Layout = "layout/_CategoriesLayout";
 }
 
@@ -23,7 +24,7 @@
         @foreach (var i in Model.products.Items)
         {
             <div class="card col-sm-2 product">
-                <a href="#!detail/{{i.id}}" class="">
+                <a href="../Products/Detail?id=@i.Id" class="">
                     <img class="card-img-top" src="images/product/@i.image"
                      alt="Card image cap">
                 </a>

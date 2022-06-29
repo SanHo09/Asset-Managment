@@ -1,2 +1,31 @@
 ﻿@model SalesWebsite.CustomerSite.ViewModel.ProductVm
-<h1>Name Product In View Component @Model.Name </h1>
+<div class="container productDetail" style="height: 500px; background-color: white;">
+    <div class="row productDetail-title align-middle">
+        <span>CHI TIẾT SẢN PHẨM</span>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">Danh mục</div>
+        <div class="col-sm-10">@Model.Category.Name</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">Ngày đăng bán</div>
+        <div class="col-sm-10">@Model.CreatedDate</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">Đã bán</div>
+        <div class="col-sm-10">@Model.Sold</div>
+    </div>
+    <div class="row note">
+        
+        Ghi chú: Với các sản phẩm có size đặc biệt thì bạn nên nhắn tin hỏi người bán để được hỗ trợ, trong trường hợp không liên hệ được có thể liên hệ tới văn phòng Shepoo 
+        <br/>
+        
+        Để biết thêm về chính sách sản phẩm vui lòng truy cập https://shopee.sg/docs/107
+        <br>
+        
+        Shepoo được biết đến với chất lượng, giá cả phải chăng. Luôn mang đến cho khách hàng mọi ưu đãi và trải nghiệm tốt nhất.
+        <br>
+        
+        Mọi thắc mắc hoặc vấn đề vui lòng liên hệ người bán hoặc hotline Shepoo: 09123124141
+    </div>
+</div>

@@ -35,7 +35,7 @@
 
                         <div class="row">
                             
-                            @await Html.PartialAsync("../common/Categories/_categoriesAside.cshtml")
+                            @await Component.InvokeAsync("categoriesAside", ViewData["categories"])
 
                             <!--product List-->
                             @RenderBody()

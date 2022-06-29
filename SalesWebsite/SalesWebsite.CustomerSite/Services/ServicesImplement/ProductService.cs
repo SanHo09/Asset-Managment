@@ -26,6 +26,11 @@ namespace SalesWebsite.CustomerSite.Services.ServicesImplement
             return pagedResponse;
         }
 
+        public Task<ProductVm> GetProductByCategoryAsync(string productName)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<ProductVm> GetProductByIdAsync(int productId)
         {
             var client = _clientFactory.CreateClient(ServiceConstants.BACK_END_NAMED_CLIENT);

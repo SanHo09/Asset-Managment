@@ -50,7 +50,7 @@ namespace SalesWebsite.Backend.Controllers
                 SortColumn = categoryCriteriaDto.SortColumn,
                 SortOrder = categoryCriteriaDto.SortOrder,
                 Limit = categoryCriteriaDto.Limit,
-                Items = categoryDto/*.AsQueryable().OrderBy("id desc")*/
+                Items = categoryDto
             };
         }
 
@@ -58,7 +58,9 @@ namespace SalesWebsite.Backend.Controllers
         [HttpGet("{id}")]
         public ActionResult<CategoryVm> findByID(int id)
         {
-            var category = _context.Categories.FirstOrDefault(i => i.Id == id && !i.IsDeleted);
+            var category = _context.Categories
+                .Include(i => i.Products)
+                .FirstOrDefault(i => i.Id == id && !i.IsDeleted);
             if(category == null)
             {
                 return NotFound();
@@ -67,8 +69,10 @@ namespace SalesWebsite.Backend.Controllers
             var CategoryVm = new CategoryVm
             {
                 Id = category.Id,
-                Name = category.Name,   
+                Name = category.Name,
                 Description = category.Description,
+
+                Products = _mapper.Map<List<ProductVm>>(category.Products)
             };
             return Ok(CategoryVm);
 

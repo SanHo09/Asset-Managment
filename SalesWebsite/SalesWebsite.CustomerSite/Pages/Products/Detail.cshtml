@@ -2,6 +2,7 @@
 @model SalesWebsite.CustomerSite.Pages.Products.DetailModel
 @{
     ViewData["title"] = "Shepoo Wakanda| Chi Tiết";
+    ViewData["product"] = Model.product;
     Layout = "layout/_ProductDetailLayout";
 }
 
@@ -132,5 +133,3 @@
 
     </div>
 </div>
-
-@await Component.InvokeAsync("ProductInformation", Model.product);

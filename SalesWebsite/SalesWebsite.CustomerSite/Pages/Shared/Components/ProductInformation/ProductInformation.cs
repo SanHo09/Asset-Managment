@@ -4,6 +4,7 @@ using SalesWebsite.CustomerSite.ViewModel;
 
 namespace SalesWebsite.CustomerSite.Pages.Shared.Components.ProductInformation
 {
+   
     public class ProductInformationViewComponent : ViewComponent
     {
         public ProductVm productVm;

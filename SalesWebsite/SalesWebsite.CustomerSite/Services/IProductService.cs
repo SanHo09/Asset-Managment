@@ -8,5 +8,7 @@ namespace SalesWebsite.CustomerSite.Services
     {
         Task<PagedResponseDto<ProductDto>> GetProductAsync(ProductCriteriaDto productCriteriaDto);
         Task<ProductVm> GetProductByIdAsync(int productId);
+
+        Task<ProductVm> GetProductByCategoryAsync(string productName);
     }
 }

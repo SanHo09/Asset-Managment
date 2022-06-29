@@ -26,8 +26,8 @@
     @RenderBody()
     <br>
     <!--More info-->
-    
-    @await Html.PartialAsync("../common/Products/_ProductDetailInformation.cshtml")
+    @await Component.InvokeAsync("ProductInformation", ViewData["product"]);
+    @*@await Html.PartialAsync("../common/Products/_ProductDetailInformation.cshtml")*@
     <br>
     <br>
 
