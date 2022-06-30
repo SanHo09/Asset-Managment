@@ -33,6 +33,7 @@ namespace SalesWebsite.Backend.Controllers
         {
            
             var categoryQuery = _context.Categories
+                .Include(i => i.Products)
                 .Where(i => !i.IsDeleted)
                 .AsQueryable(); 
             // Lọc category theo tên

@@ -21,21 +21,27 @@
     <div class="row">
         
 
-        @foreach (var i in Model.products.Items)
+        @foreach (var category in Model.categories.Items)
         {
-            <div class="card col-sm-2 product">
-                <a href="../Products/Detail?id=@i.Id" class="">
-                    <img class="card-img-top" src="images/product/@i.image"
-                     alt="Card image cap">
-                </a>
-                <div class="card-body">
-                    <p class="card-text"><b></b>@i.Name</p>
-                    <span class="price">@i.Price đ</span><br>
+            foreach(var product in category.Products)
+            {
+                <div class="card col-sm-2 product">
+                    <a href="../Products/Detail?id=@product.Id" class="">
+                        <img class="card-img-top" src="images/product/@product.image"
+                         alt="Card image cap">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text"><b></b>@product.Name</p>
+                        <span class="price">@product.Price đ</span><br>
 
-                    <span class="number">đã bán: @i.Sold K</span>
+                        <span class="number">đã bán: @product.Sold K</span>
 
+                    </div>
                 </div>
-            </div>
+            }
+            
+            
+            
         }
 
 

@@ -39,7 +39,7 @@ namespace SalesWebsite.CustomerSite.Pages.Categories
             };
             var pagedCategoriesDto= await _categoryService.GetCategoriesAsync(categoryCriteriaDto);
             categories = _mapper.Map<PagedResponseVm<CategoryVm>>(pagedCategoriesDto);
-            await GetProduct(sortOrder, currentFilter, searchString, pageIndex);
+            await GetCategories(sortOrder, currentFilter, searchString, pageIndex);
             /*var productCateriaDto = new ProductCriteriaDto
             {
                 Search = searchString,
@@ -51,19 +51,17 @@ namespace SalesWebsite.CustomerSite.Pages.Categories
             products = _mapper.Map<PagedResponseVm<ProductVm>>(pagedProductDto);*/
 
         }
-        public async Task GetProduct(string sortOrder, string currentFilter, string searchString, int? pageIndex)
+        public async Task GetCategories(string sortOrder, string currentFilter, string searchString, int? pageIndex)
         {
-            var productCateriaDto = new ProductCriteriaDto
+            var categoryDto = new CategoryCriteriaDto
             {
                 Search = searchString,
                 SortColumn = sortOrder,
                 Page = pageIndex ?? 1,
                 Limit = int.Parse(_config[ConfigurationConstants.PAGING_LIMIT])
             };
-            var pagedProductDto = await _productService.GetProductAsync(productCateriaDto);
-            this.products = _mapper.Map<PagedResponseVm<ProductVm>>(pagedProductDto);
-            
-
+            var pagedCategoriesDto = await _categoryService.GetCategoriesAsync(categoryDto);
+            this.categories = _mapper.Map<PagedResponseVm<CategoryVm>>(pagedCategoriesDto);
         }
     }
 

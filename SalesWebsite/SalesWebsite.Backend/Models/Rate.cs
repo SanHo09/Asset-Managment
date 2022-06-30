@@ -6,7 +6,7 @@ namespace SalesWebsite.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Content { get; set; }
+        public string? Content { get; set; }
         public float NumberOfStar { get; set; }
 
         public virtual Product Product { get; set; }
