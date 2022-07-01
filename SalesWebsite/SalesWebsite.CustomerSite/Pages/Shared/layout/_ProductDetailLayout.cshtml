@@ -30,7 +30,7 @@
     @*@await Html.PartialAsync("../common/Products/_ProductDetailInformation.cshtml")*@
     <br>
     <br>
-    @await Html.PartialAsync("../common/Rates/_Rates.cshtml")
+    @await Component.InvokeAsync("ProductRates", ViewData["product"]);
     <br />
     <br />
     @await Html.PartialAsync("../common/_Footer.cshtml")

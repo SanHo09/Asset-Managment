@@ -73,7 +73,7 @@ namespace SalesWebsite.Backend.Controllers
         {
             var product = _context.Products
                 .Include(p => p.Category)
-                .Include(p => p.Rates)
+                .Include(p => p.Rates).ThenInclude(r => r.Customer)
                 .FirstOrDefault(i => i.Id == id && !i.IsDeleted);
             if(product == null)
             {

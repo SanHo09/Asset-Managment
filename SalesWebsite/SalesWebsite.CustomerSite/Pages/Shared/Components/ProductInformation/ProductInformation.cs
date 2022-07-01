@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using SalesWebsite.CustomerSite.ViewModel;
 
 namespace SalesWebsite.CustomerSite.Pages.Shared.Components.ProductInformation

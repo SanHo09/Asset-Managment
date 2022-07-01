@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SalesWebsite.Backend.Data;
 using SalesWebsite.Models;
 using SalesWebsite.Shared.CreateRequest;
+using SalesWebsite.ViewModels;
 
 namespace SalesWebsite.Backend.Controllers
 {
@@ -45,6 +47,17 @@ namespace SalesWebsite.Backend.Controllers
         public IEnumerable<Rate> GetRates()
         {
             return _context.Rates.ToList();
+        }
+
+        [HttpGet("{productId}")]
+        public IEnumerable<Rate> findRateByProductId(int productId)
+        {
+            var rate = _context.Rates
+                .Include(r => r.Customer)
+                .Where(r => r.Product.Id == productId)
+                .ToList();
+            var rateVm = _mapper.Map<List<RateVm>>(rate);
+            return rate;
         }
 
         

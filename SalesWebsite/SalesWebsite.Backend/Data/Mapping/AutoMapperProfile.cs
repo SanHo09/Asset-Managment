@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SalesWebsite.Models;
 using SalesWebsite.Shared.Dto.Category;
+using SalesWebsite.Shared.Dto.Customer;
 using SalesWebsite.Shared.Dto.Product;
 using SalesWebsite.Shared.Dto.Rate;
 using SalesWebsite.ViewModels;
@@ -20,6 +21,8 @@ namespace SalesWebsite.Backend.Data.Mapping
             CreateMap<Rate, RateDto>();
             CreateMap<Rate, RateVm>();
 
+            CreateMap<Customer, CustomerDto>();
+            CreateMap<Customer, CustomerVm>();
 
         }
     }
