@@ -5,6 +5,6 @@ namespace SalesWebsite.CustomerSite.Services
 {
     public interface IRateService
     {
-        public Task addRate(RateCreateRequest rateCreateRequest);
+        public Task AddRate(RateCreateRequest rateCreateRequest);
     }
 }

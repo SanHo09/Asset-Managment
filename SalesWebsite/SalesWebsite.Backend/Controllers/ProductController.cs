@@ -29,19 +29,8 @@ namespace SalesWebsite.Backend.Controllers
             _mapper = mapper;
         }
 
-        /*[HttpGet("findByCategory/{id}")]
-        public async Task<IEnumerable<ProductVm>> FindByCategoryId(int id)
-        {
-            var productQuery = _context.Products
-                .Include(p => p.Category)
-                .Where(i => !i.IsDeleted && i.Category.Id == id);
-            var productsVm = _mapper.Map<IEnumerable<ProductVm>>(productQuery);
-            return productsVm;
-            
-        }*/
-
         [HttpGet]
-        public async Task<PagedResponseDto<ProductDto>> FindAllAsync([FromQuery]ProductCriteriaDto productCriteriaDto)
+        public async Task<PagedResponseDto<ProductDto>> FindAllAsync([FromQuery] ProductCriteriaDto productCriteriaDto)
         {
             var productQuery = _context.Products
                 .Include(p => p.Category)
@@ -75,11 +64,11 @@ namespace SalesWebsite.Backend.Controllers
                 .Include(p => p.Category)
                 .Include(p => p.Rates).ThenInclude(r => r.Customer)
                 .FirstOrDefault(i => i.Id == id && !i.IsDeleted);
-            if(product == null)
+            if (product == null)
             {
                 return NotFound();
             }
-          
+
             return Ok(new ProductVm
             {
                 Id = product.Id,
@@ -96,14 +85,14 @@ namespace SalesWebsite.Backend.Controllers
                 Rates = _mapper.Map<List<RateVm>>(product.Rates)
 
 
-            }); 
+            });
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromForm]ProductCreateRequest productCreateRequest)
+        public async Task<IActionResult> CreateAsync([FromForm] ProductCreateRequest productCreateRequest)
         {
             var category = await _context.Categories.FindAsync(productCreateRequest.CategoryId);
-            if(category == null)
+            if (category == null)
             {
                 return NotFound();
             }
@@ -131,34 +120,34 @@ namespace SalesWebsite.Backend.Controllers
         {
             var product = await _context.Products.FindAsync(id);
             var category = await _context.Categories.FindAsync(productCreateRequest.CategoryId);
-          
-            if(product == null || category == null)
+
+            if (product == null || category == null)
             {
                 return NotFound();
             }
-            if(!String.IsNullOrEmpty(productCreateRequest.Name))
+            if (!String.IsNullOrEmpty(productCreateRequest.Name))
             {
                 product.Name = productCreateRequest.Name;
-            } 
-            if(productCreateRequest.Price > 0)
+            }
+            if (productCreateRequest.Price > 0)
             {
                 product.Price = productCreateRequest.Price;
             }
-            if(productCreateRequest.Quantity > 0)
+            if (productCreateRequest.Quantity > 0)
             {
                 product.Quantity = productCreateRequest.Quantity;
             }
-            if(productCreateRequest.Rate > 0 )
+            if (productCreateRequest.Rate > 0)
             {
                 product.Rate = productCreateRequest.Rate;
             }
-            if(!string.IsNullOrEmpty(productCreateRequest.image))
+            if (!string.IsNullOrEmpty(productCreateRequest.image))
             {
                 product.image = productCreateRequest.image;
             }
             product.Category = category;
             product.UpdateDate = new DateTime();
-           
+
             _context.Products.Update(product);
             _context.SaveChanges();
             return Ok();
@@ -181,14 +170,14 @@ namespace SalesWebsite.Backend.Controllers
             IQueryable<Product> productQuery,
             ProductCriteriaDto productCriteria)
         {
-            if(!String.IsNullOrEmpty(productCriteria.Search))
+            if (!String.IsNullOrEmpty(productCriteria.Search))
             {
                 productQuery = productQuery.Where(i => i.Name.Contains(productCriteria.Search) ||
                                                         i.Id.ToString().Contains(productCriteria.Search));
             }
             return productQuery;
         }
-       
+
     }
 
 }

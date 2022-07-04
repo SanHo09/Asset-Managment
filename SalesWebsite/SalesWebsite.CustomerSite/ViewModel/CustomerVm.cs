@@ -8,6 +8,6 @@
         public string FullName { get; set; }
         public bool Isdeleted { get; set; } = false;
         public int? Sold { get; set; } = 0;
-        virtual public List<RateVm> rates { get; set; }
+        virtual public List<RateVm> Rates { get; set; }
     }
 }

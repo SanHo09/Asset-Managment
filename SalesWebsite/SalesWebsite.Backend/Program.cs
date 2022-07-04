@@ -39,5 +39,4 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers();
 });
 
-const int a = 10 + 5;
 app.Run();

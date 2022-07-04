@@ -16,16 +16,11 @@
 
             </strong>
         </li>
-        @foreach(var i in @Model.Items)
+        @foreach (var i in @Model.Items)
         {
             <li><a href="/categories?searchString=@i.Id">@i.Name</a></li>
         }
-       
-       @* <li><a>Thời trang</a></li>
-        <li><a>Giày dép</a></li>
-        <li><a>Xe cộ</a></li>
-        <li><a>Phụ kiện</a></li>*@
-    
+
     </ul>
 
     <ul class="category" style="margin-top: 30px;">

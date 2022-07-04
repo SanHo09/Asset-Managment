@@ -13,7 +13,7 @@ namespace SalesWebsite.CustomerSite.Services.ServicesImplement
             _clientFactory = clientFactory;
         }
 
-        public async Task addRate(RateCreateRequest rateCreateRequest)
+        public async Task AddRate(RateCreateRequest rateCreateRequest)
         {
             
             var client = _clientFactory.CreateClient(ServiceConstants.BACK_END_NAMED_CLIENT);

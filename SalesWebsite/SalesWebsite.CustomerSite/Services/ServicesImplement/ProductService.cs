@@ -9,7 +9,7 @@ namespace SalesWebsite.CustomerSite.Services.ServicesImplement
     {
         private readonly IHttpClientFactory _clientFactory;
 
-        public ProductService (IHttpClientFactory clientFactory)
+        public ProductService(IHttpClientFactory clientFactory)
         {
             _clientFactory = clientFactory;
         }

@@ -39,18 +39,9 @@ namespace SalesWebsite.CustomerSite.Pages.Categories
             };
             var pagedCategoriesDto= await _categoryService.GetCategoriesAsync(categoryCriteriaDto);
             categories = _mapper.Map<PagedResponseVm<CategoryVm>>(pagedCategoriesDto);
-            await GetCategories(sortOrder, currentFilter, searchString, pageIndex);
-            /*var productCateriaDto = new ProductCriteriaDto
-            {
-                Search = searchString,
-                SortColumn = sortOrder,
-                Page = pageIndex ?? 1,
-                Limit = int.Parse(_config[ConfigurationConstants.PAGING_LIMIT])
-            };
-            var pagedProductDto = await _productService.GetProductAsync(productCateriaDto);
-            products = _mapper.Map<PagedResponseVm<ProductVm>>(pagedProductDto);*/
-
+            await GetCategories(sortOrder, currentFilter, searchString, pageIndex);          
         }
+
         public async Task GetCategories(string sortOrder, string currentFilter, string searchString, int? pageIndex)
         {
             var categoryDto = new CategoryCriteriaDto

@@ -23,7 +23,7 @@ namespace SalesWebsite.Backend.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> createAsync(RateCreateRequest rateCreateRequest)
+        public async Task<IActionResult> CreateAsync(RateCreateRequest rateCreateRequest)
         {
             Customer customer = await _context.Customers.FindAsync(rateCreateRequest.CustomerId);
             Product product = await _context.Products.FindAsync(rateCreateRequest.ProductId);
@@ -50,7 +50,7 @@ namespace SalesWebsite.Backend.Controllers
         }
 
         [HttpGet("{productId}")]
-        public IEnumerable<Rate> findRateByProductId(int productId)
+        public IEnumerable<Rate> FindRateByProductId(int productId)
         {
             var rate = _context.Rates
                 .Include(r => r.Customer)

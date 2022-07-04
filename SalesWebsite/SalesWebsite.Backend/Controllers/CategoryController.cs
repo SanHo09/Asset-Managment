@@ -20,7 +20,7 @@ namespace SalesWebsite.Backend.Controllers
     {
         private readonly SalesWebsiteBackendContext _context;
         private readonly IMapper _mapper;
-       
+
 
         public CategoryController(SalesWebsiteBackendContext context, IMapper mapper)
         {
@@ -29,13 +29,12 @@ namespace SalesWebsite.Backend.Controllers
         }
 
         [HttpGet]
-        public async Task<PagedResponseDto<CategoryDto>> findAllAsync([FromQuery]CategoryCriteriaDto categoryCriteriaDto)
+        public async Task<PagedResponseDto<CategoryDto>> FindAllAsync([FromQuery] CategoryCriteriaDto categoryCriteriaDto)
         {
-           
             var categoryQuery = _context.Categories
                 .Include(i => i.Products)
                 .Where(i => !i.IsDeleted)
-                .AsQueryable(); 
+                .AsQueryable();
             // Lọc category theo tên
             categoryQuery = CategoryFilter(categoryQuery, categoryCriteriaDto);
             // Chuyển dữ liệu từ truy vấn tổng hợp lại thành các thông tin: số trang, tổng số trang, sản phẩm
@@ -57,12 +56,12 @@ namespace SalesWebsite.Backend.Controllers
 
 
         [HttpGet("{id}")]
-        public ActionResult<CategoryVm> findByID(int id)
+        public ActionResult<CategoryVm> FindByID(int id)
         {
             var category = _context.Categories
                 .Include(i => i.Products)
                 .FirstOrDefault(i => i.Id == id && !i.IsDeleted);
-            if(category == null)
+            if (category == null)
             {
                 return NotFound();
             }
@@ -81,7 +80,7 @@ namespace SalesWebsite.Backend.Controllers
 
 
         [HttpPost]
-        public IActionResult create([FromForm] CategoryCreateRequest categoryCreateRequest)
+        public IActionResult Create([FromForm] CategoryCreateRequest categoryCreateRequest)
         {
             Category category = new Category()
             {
@@ -89,42 +88,44 @@ namespace SalesWebsite.Backend.Controllers
                 Description = categoryCreateRequest.Description,
                 IsDeleted = false
             };
-         
+
             _context.Categories.Add(category);
             _context.SaveChanges();
 
-            return CreatedAtAction("getCategory", new CategoryVm { Id = category.Id,
+            return CreatedAtAction("getCategory", new CategoryVm
+            {
+                Id = category.Id,
                 Name = category.Name,
                 Description = category.Description
             });
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> updateAsync([FromRoute] int id, [FromForm] CategoryCreateRequest categoryCreateRequest)
+        public async Task<IActionResult> UpdateAsync([FromRoute] int id, [FromForm] CategoryCreateRequest categoryCreateRequest)
         {
             var category = await _context.Categories.FindAsync(id);
-            if(category == null)
+            if (category == null)
             {
                 return NotFound();
             }
-            if(!string.IsNullOrEmpty(category.Name))
+            if (!string.IsNullOrEmpty(category.Name))
             {
                 category.Name = categoryCreateRequest.Name;
             }
-            if(!string.IsNullOrEmpty(category.Description))
+            if (!string.IsNullOrEmpty(category.Description))
             {
                 category.Description = categoryCreateRequest.Description;
             }
-            
+
             _context.SaveChanges();
             return Ok(category);
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> deleteAsync(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
             var category = await _context.Categories.FindAsync(id);
-            if(category == null)
+            if (category == null)
             {
                 return NotFound();
             }
@@ -136,19 +137,18 @@ namespace SalesWebsite.Backend.Controllers
             return Ok();
         }
 
-        
         private IQueryable<Category> CategoryFilter(
             IQueryable<Category> categoriesQuery,
             CategoryCriteriaDto categoryCriteria)
         {
 
-            if(!String.IsNullOrEmpty(categoryCriteria.Search) && !categoryCriteria.Search.Contains("all"))
+            if (!String.IsNullOrEmpty(categoryCriteria.Search) && !categoryCriteria.Search.Contains("all"))
             {
-                categoriesQuery = categoriesQuery.Where(c => c.Name.Contains(categoryCriteria.Search) || 
+                categoriesQuery = categoriesQuery.Where(c => c.Name.Contains(categoryCriteria.Search) ||
                                                 c.Id.ToString().Contains(categoryCriteria.Search));
             }
             return categoriesQuery;
         }
-        
+
     }
 }

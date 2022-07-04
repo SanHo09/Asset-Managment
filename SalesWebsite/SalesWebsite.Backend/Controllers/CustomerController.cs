@@ -23,13 +23,13 @@ namespace SalesWebsite.Backend.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Customer> getAll()
+        public IEnumerable<Customer> GetAll()
         {
             return _context.Customers.ToList();
         }
 
         [HttpPost]
-        public IActionResult addCustomer(CustomerCreateRequest customerCreateRequest)
+        public IActionResult AddCustomer(CustomerCreateRequest customerCreateRequest)
         {
             var checkCustomer = _context.Customers
                 .FirstOrDefault(customer => customer.UserName == customerCreateRequest.UserName);

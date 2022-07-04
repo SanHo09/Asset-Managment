@@ -25,8 +25,15 @@ namespace SalesWebsite.CustomerSite.Pages.Products
         public async Task OnGet(int id)
         {
             product = await _productService.GetProductByIdAsync(id);
-            if(product.Rate != null) { 
-                product.Rate = product.Rates.Average(rate => rate.NumberOfStar);
+            try
+            {
+                if (product.Rates != null)
+                {
+                    product.Rate = product.Rates.Average(rate => rate.NumberOfStar);
+                }
+            } catch(Exception ex)
+            {
+                product.Rate = 5;
             }
         }
 
@@ -44,7 +51,7 @@ namespace SalesWebsite.CustomerSite.Pages.Products
                 Content = content,
                 NumberOfStar = startNumber
             };
-            await _rateService.addRate(rateCreateRequest);
+            await _rateService.AddRate(rateCreateRequest);
             product = await _productService.GetProductByIdAsync(productId);
             product.Rate = product.Rates.Average(rate => rate.NumberOfStar);
             // cập nhật rate của product lại theo rates
