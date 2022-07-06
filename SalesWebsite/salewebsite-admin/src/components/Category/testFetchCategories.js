@@ -7,7 +7,7 @@ const CategoryTable = () => {
 
     useEffect(() => {
        axios.get(`https://localhost:44321/api/Category`)
-        .then(res => setCategories(res.data))
+        .then(res => setCategories(res.data.items))
     }, [])
 
     console.log(categories);
