@@ -21,7 +21,6 @@ namespace SalesWebsite.Backend.Controllers
         private readonly SalesWebsiteBackendContext _context;
         private readonly IMapper _mapper;
 
-
         public CategoryController(SalesWebsiteBackendContext context, IMapper mapper)
         {
             _context = context;
