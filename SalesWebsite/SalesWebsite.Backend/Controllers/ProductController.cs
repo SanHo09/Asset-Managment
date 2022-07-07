@@ -58,12 +58,12 @@ namespace SalesWebsite.Backend.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult FindById(int id)
+        public async Task<IActionResult> FindById(int id)
         {
-            var product = _context.Products
+            var product = await _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Rates).ThenInclude(r => r.Customer)
-                .FirstOrDefault(i => i.Id == id && !i.IsDeleted);
+                .FirstOrDefaultAsync(i => i.Id == id && !i.IsDeleted);
             if (product == null)
             {
                 return NotFound();
@@ -111,7 +111,7 @@ namespace SalesWebsite.Backend.Controllers
             };
 
             _context.Products.Add(product);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return Ok();
         }
 
@@ -149,7 +149,7 @@ namespace SalesWebsite.Backend.Controllers
             product.UpdateDate = new DateTime();
 
             _context.Products.Update(product);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return Ok();
         }
 
@@ -163,6 +163,7 @@ namespace SalesWebsite.Backend.Controllers
             }
             product.IsDeleted = true;
             _context.Products.Update(product);
+            await _context.SaveChangesAsync();
             return Ok();
         }
 

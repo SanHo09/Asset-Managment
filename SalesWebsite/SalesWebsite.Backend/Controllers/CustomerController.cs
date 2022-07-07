@@ -23,13 +23,13 @@ namespace SalesWebsite.Backend.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Customer> GetAll()
+        public async Task<IEnumerable<Customer>> GetAll()
         {
             return _context.Customers.ToList();
         }
 
         [HttpPost]
-        public IActionResult AddCustomer(CustomerCreateRequest customerCreateRequest)
+        public async Task<IActionResult> AddCustomer(CustomerCreateRequest customerCreateRequest)
         {
             var checkCustomer = _context.Customers
                 .FirstOrDefault(customer => customer.UserName == customerCreateRequest.UserName);
@@ -45,7 +45,7 @@ namespace SalesWebsite.Backend.Controllers
                 
             };
             _context.Customers.Add(customer);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return Ok();
         }
 

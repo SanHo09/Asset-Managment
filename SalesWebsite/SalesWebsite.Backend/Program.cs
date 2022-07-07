@@ -28,6 +28,10 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod();
         });
 });
+builder.Services.Configure<RouteOptions>(routeOptions =>
+{
+    routeOptions.LowercaseUrls = true;
+});
 var app = builder.Build();
 
 app.UseRouting();

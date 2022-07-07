@@ -1,5 +1,6 @@
 const Endpoints = {
-    categories: 'api/Category'
+    categories: '/api/category',
+    categoryId: (id) => `/api/category/${id}`
 }
 
 export default Endpoints;

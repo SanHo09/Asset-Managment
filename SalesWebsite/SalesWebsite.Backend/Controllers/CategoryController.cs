@@ -55,11 +55,11 @@ namespace SalesWebsite.Backend.Controllers
 
 
         [HttpGet("{id}")]
-        public ActionResult<CategoryVm> FindByID(int id)
+        public async Task<ActionResult<CategoryVm>> FindByID(int id)
         {
-            var category = _context.Categories
+            var category = await _context.Categories
                 .Include(i => i.Products)
-                .FirstOrDefault(i => i.Id == id && !i.IsDeleted);
+                .FirstOrDefaultAsync(i => i.Id == id && !i.IsDeleted);
             if (category == null)
             {
                 return NotFound();
@@ -79,7 +79,7 @@ namespace SalesWebsite.Backend.Controllers
 
 
         [HttpPost]
-        public IActionResult Create([FromForm] CategoryCreateRequest categoryCreateRequest)
+        public async Task<IActionResult> Create([FromForm] CategoryCreateRequest categoryCreateRequest)
         {
             Category category = new Category()
             {
@@ -89,7 +89,7 @@ namespace SalesWebsite.Backend.Controllers
             };
 
             _context.Categories.Add(category);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("getCategory", new CategoryVm
             {
@@ -116,7 +116,7 @@ namespace SalesWebsite.Backend.Controllers
                 category.Description = categoryCreateRequest.Description;
             }
 
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return Ok(category);
         }
 

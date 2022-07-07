@@ -39,7 +39,7 @@ namespace SalesWebsite.Backend.Controllers
                 NumberOfStar = rateCreateRequest.NumberOfStar, 
             };
             _context.Rates.Add(rate);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return Ok();
         }
 
