@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "QxGK1XKvODYv1jR+NC3uOO1LmTEtOJmF9eidBlVRNs2585j5erfbGTcCbO8bVFy6LIAQAhlYCAuFLMA5oZ/vUw==",
+  "dgSpecHash": "yKu7sQCqVPFYNON6SXiDNZYaYkCoy1Qmq1lsw3H4+4jfrDNRVcn8ffepawW7bna2cd4EU+bxEu4g/iJQS56Jsw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sang\\Desktop\\NashTech_2022_Training\\Rookie_ASM\\Rookies_Batch_5\\SalesWebsite\\ClassLibrary1\\SalesWebsite.Shared.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sang\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Sang\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Sang\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Sang\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\Sang\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Sang\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.6\\microsoft.entityframeworkcore.6.0.6.nupkg.sha512",
     "C:\\Users\\Sang\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.6\\microsoft.entityframeworkcore.abstractions.6.0.6.nupkg.sha512",
@@ -25,6 +26,7 @@
     "C:\\Users\\Sang\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\Sang\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\Sang\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "C:\\Users\\Sang\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
     "C:\\Users\\Sang\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []

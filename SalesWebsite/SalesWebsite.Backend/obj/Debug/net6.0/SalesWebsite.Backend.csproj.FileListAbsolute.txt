@@ -272,3 +272,4 @@ C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWeb
 C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.Backend\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
 C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.Backend\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.Backend\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Sang\Desktop\NashTech_2022_Training\Rookie_ASM\Rookies_Batch_5\SalesWebsite\SalesWebsite.Backend\bin\Debug\net6.0\SalesWebsite.Backend.staticwebassets.runtime.json

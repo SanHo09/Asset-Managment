@@ -1,8 +1,5 @@
-import axios from "axios"
 import { useState, useEffect } from "react"
-import { UrlBackEnd } from "~/constants/oidc-config"
-import Endpoints from "~/constants/endpoints"
-import CategoryTable from "./categoryTable"
+import CategoryTable from "./List/categoryTable"
 import { Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { CREATE_CATEGORY } from "~/constants/pages"
@@ -12,41 +9,51 @@ import { DEFAULT_PAGE_LIMIT,
 } from "~/constants/paging"
 import { getCategoriesRequest } from "~/services/categoriesService"
 
-const ListCategory = () => {
+function ListCategories() {
 
     let navigate = useNavigate();
+
+    const [categories, setCategories] = useState(undefined)
+    const [isDelete, setDelete] = useState(false)
 
     const [query, setQuery] = useState({
         page: 1,
         limit: DEFAULT_PAGE_LIMIT,
         sortOrder: ASCENDING,
         sortColumn: DEFAULT_CATEGORY_SORT_COLUMN_NAME
-      });
+    });
 
-    const [categories, setCategories] = useState(undefined)
-    const [update, setUpdate] = useState('')
-    
-    async function fetchDataCallBackAsync() {
+    async function fetchDataCallBackAsync(isDeleteQuery) {
         let result = await getCategoriesRequest(query);
         setCategories(result.data)
+        setDelete(!isDelete);
     }
 
     useEffect(() => {
-        fetchDataCallBackAsync();
-    }, [query, categories])
+        console.log('mounted');
+        const fetchData = async() => {
+            let result = await getCategoriesRequest(query);
+            setCategories(result.data)
+            setDelete(false)
+        }
+        fetchData();
+
+    }, [query, isDelete])
 
     return (
         <div className="container">
             <Button 
                 variant="outline-primary" 
                 onClick={() => navigate(CREATE_CATEGORY)}
-            >Add</Button>       
+            >Add</Button>     
+            <br />  
             <CategoryTable 
                 categories = {categories}
                 fetchData = {fetchDataCallBackAsync}
+                isDelete = {isDelete}
             />
         </div>
     )
 }
 
-export default ListCategory; 
+export default ListCategories; 

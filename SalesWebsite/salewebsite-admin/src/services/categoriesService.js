@@ -13,7 +13,6 @@ export function createCategoriesRequest(categoryForm) {
     const formData = new FormData();
 
     Object.keys(categoryForm).forEach(key => {
-        console.log(`${key}, ${categoryForm[key]}`);
         formData.append(key, categoryForm[key])
     });
 

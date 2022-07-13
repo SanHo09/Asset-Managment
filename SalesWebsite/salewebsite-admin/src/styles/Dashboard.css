@@ -1,0 +1,43 @@
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar-title {
+    margin: 15px 0px 20px 30px;   
+}
+
+a:hover {
+    color: rgb(99, 97, 97);   
+}
+
+.layout {
+    height: 100%;
+}
+
+.sidebar {
+
+    height: 100%;
+}
+
+.sidebar ul li {
+    padding-top: 20px;
+}
+
+.sidebar ul li a {
+    font-size: 18px;
+}
+
+
+.sidebar ul li a span{
+    padding-left: 10px;
+}
+
+.content {
+    margin: 50px;
+}
+
+

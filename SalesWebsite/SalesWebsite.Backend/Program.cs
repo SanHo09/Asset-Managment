@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SalesWebsite.Backend.Data;
+using SalesWebsite.Backend.Services;
+using SalesWebsite.Backend.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SalesWebsiteBackendContext>(options =>
@@ -8,13 +10,15 @@ builder.Services.AddDbContext<SalesWebsiteBackendContext>(options =>
     ?? throw new InvalidOperationException("Connection string 'SalesWebsiteBackendContext' not found.")));
 
 // Add services to the container.
-
+/*builder.Services.AddServices();*/
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddTransient<IFileStorageService, FileStorageService>();
+builder.Services.AddServices();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddRazorPages();

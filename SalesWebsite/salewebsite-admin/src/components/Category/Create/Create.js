@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import CategoryForm from '~/shared-components/categoryForm'
+import CategoryForm from '../categoryForm';
 
 function CreateCategory() {
 

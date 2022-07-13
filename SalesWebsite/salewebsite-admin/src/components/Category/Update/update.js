@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import CategoryForm from "~/shared-components/categoryForm";
+import CategoryForm from '../categoryForm';
 
 function UpdateCategory() {
 
     const[categories, setCategories] = useState({});
 
-
+    // get value from index and pass to form
     const {state} = useLocation();
     const {existCategory} = state;
     

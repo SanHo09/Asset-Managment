@@ -1,0 +1,1 @@
+export const DEFAULT_IMAGE = 'https://www.chanchao.com.tw/VTG/images/default.jpg'

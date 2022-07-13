@@ -16,14 +16,12 @@ namespace SalesWebsite.CustomerSite.Pages.Categories
         private readonly ICategoryService _categoryService;
         private readonly IConfiguration _config;
         private readonly IMapper _mapper;
-        private readonly IProductService _productService;
 
-        public IndexModel(ICategoryService categoryService, IConfiguration config, IMapper mapper, IProductService productService)
+        public IndexModel(ICategoryService categoryService, IConfiguration config, IMapper mapper)
         {
             _categoryService = categoryService;
             _config = config;
             _mapper = mapper;
-            _productService = productService;
         }
 
         public PagedResponseVm<CategoryVm> categories { get; set; }
