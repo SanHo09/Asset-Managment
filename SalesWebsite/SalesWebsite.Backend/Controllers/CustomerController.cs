@@ -2,9 +2,13 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using SalesWebsite.Backend.Data;
+using SalesWebsite.Backend.Security;
+using SalesWebsite.Backend.Services;
 using SalesWebsite.Models;
 using SalesWebsite.Shared;
 using SalesWebsite.Shared.CreateRequest;
+using SalesWebsite.Shared.Dto.Customer;
+using SalesWebsite.ViewModels;
 
 namespace SalesWebsite.Backend.Controllers
 {
@@ -13,40 +17,38 @@ namespace SalesWebsite.Backend.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly SalesWebsiteBackendContext _context;
-        private readonly IMapper _mapper;
+        private readonly ICustomerService _customerService;
 
-        public CustomerController(SalesWebsiteBackendContext context, IMapper mapper)
+        public CustomerController(ICustomerService customerService)
         {
-            _context = context;
-            _mapper = mapper;
+            _customerService = customerService;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Customer>> GetAll()
+        public async Task<IEnumerable<CustomerVm>> GetAll()
         {
-            return _context.Customers.ToList();
-        }
+            return await _customerService.FindAllAsync();
+        }   
 
         [HttpPost]
-        public async Task<IActionResult> AddCustomer(CustomerCreateRequest customerCreateRequest)
+        public async Task<CustomerVm> Register([FromForm]CustomerCreateRequest customerCreateRequest)
         {
-            var checkCustomer = _context.Customers
-                .FirstOrDefault(customer => customer.UserName == customerCreateRequest.UserName);
-            if(checkCustomer != null)
+            return await _customerService.RegisterAsync(customerCreateRequest);
+        }
+
+        [HttpPost("login")]
+        public async Task<ActionResult<string>> Login([FromForm]CustomerLoginRequest customerLoginRequest)
+        {
+            var customer = await _customerService.LoginAsync(customerLoginRequest);
+            if(customer == null)
             {
-                return BadRequest("Username already exists ");
-            } 
-            Customer customer = new Customer()
+                return NotFound();
+            }
+            if(customer == "")
             {
-                UserName = customerCreateRequest.UserName,
-                Password = customerCreateRequest.Password,
-                FullName = customerCreateRequest.FullName,
-                
-            };
-            _context.Customers.Add(customer);
-            await _context.SaveChangesAsync();
-            return Ok();
+                return BadRequest("Wrong password");
+            }
+            return await _customerService.LoginAsync(customerLoginRequest);
         }
 
     }

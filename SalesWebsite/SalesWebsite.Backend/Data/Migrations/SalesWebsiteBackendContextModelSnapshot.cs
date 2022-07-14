@@ -43,35 +43,45 @@ namespace SalesWebsite.Backend.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Customer", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("Isdeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Password")
+                    b.Property<byte[]>("PasswordHash")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
-                    b.ToTable("Customers", (string)null);
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Product", b =>
@@ -118,7 +128,7 @@ namespace SalesWebsite.Backend.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Rate", b =>
@@ -130,10 +140,9 @@ namespace SalesWebsite.Backend.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Content")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Customerid")
+                    b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<float>("NumberOfStar")
@@ -144,11 +153,11 @@ namespace SalesWebsite.Backend.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Customerid");
+                    b.HasIndex("CustomerId");
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Rates", (string)null);
+                    b.ToTable("Rates");
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Product", b =>
@@ -165,8 +174,8 @@ namespace SalesWebsite.Backend.Data.Migrations
             modelBuilder.Entity("SalesWebsite.Models.Rate", b =>
                 {
                     b.HasOne("SalesWebsite.Models.Customer", "Customer")
-                        .WithMany("rates")
-                        .HasForeignKey("Customerid")
+                        .WithMany("Rates")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -188,7 +197,7 @@ namespace SalesWebsite.Backend.Data.Migrations
 
             modelBuilder.Entity("SalesWebsite.Models.Customer", b =>
                 {
-                    b.Navigation("rates");
+                    b.Navigation("Rates");
                 });
 
             modelBuilder.Entity("SalesWebsite.Models.Product", b =>

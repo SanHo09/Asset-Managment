@@ -9,6 +9,9 @@ namespace SalesWebsite.Backend.Extensions
         {
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IFileStorageService, FileStorageService>();
+            services.AddTransient<ISecurityService, SecurityService>();
+            services.AddTransient<ICustomerService, CutomerService>();
         }
     }
 }
