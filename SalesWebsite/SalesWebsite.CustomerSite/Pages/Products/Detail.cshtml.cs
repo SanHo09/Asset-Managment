@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SalesWebsite.CustomerSite.Services;
 using SalesWebsite.CustomerSite.ViewModel;
+using SalesWebsite.Shared.Constants;
 using SalesWebsite.Shared.CreateRequest;
 
 namespace SalesWebsite.CustomerSite.Pages.Products
@@ -37,24 +38,40 @@ namespace SalesWebsite.CustomerSite.Pages.Products
             }
         }
 
-        public async Task OnPost(int productId)
+        public async Task OnPostRate(int productId)
         {
             
-            int customerId = 1;
+            // get token from cookie and pass to Service to Authorized
+            string userName = Request.Cookies["userName"];
+            string token = Request.Cookies["token"];
+            
+            if(token == null)
+            {
+                Response.Redirect(PagesConstants.LOGIN);
+            }
+
             string content = Request.Form["content"];
-            string a = Request.Form["star"];
-            int startNumber = int.Parse(Request.Form["star"]);
+            string star = Request.Form["star"];
+
+            int startNumber = int.Parse(star);
+
             RateCreateRequest rateCreateRequest = new RateCreateRequest()
             {
-                CustomerId = customerId,
+                UserName = userName,
                 ProductId = productId,
                 Content = content,
                 NumberOfStar = startNumber
             };
-            await _rateService.AddRate(rateCreateRequest);
+
+            await _rateService.AddRateAsync(rateCreateRequest, token);
             product = await _productService.GetProductByIdAsync(productId);
-            product.Rate = product.Rates.Average(rate => rate.NumberOfStar);
-            // cập nhật rate của product lại theo rates
+            try
+            {
+                product.Rate = product.Rates.Average(rate => rate.NumberOfStar);
+            } catch
+            {
+                // Catch if Product has none rates 
+            }
 
         }
     }

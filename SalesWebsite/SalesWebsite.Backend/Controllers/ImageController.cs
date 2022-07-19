@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,6 +20,7 @@ namespace SalesWebsite.Backend.Controllers
         }
 
         [HttpGet("{name}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetImage(string name)
         {
             byte[] b = await _fileStorageService.GetFileAsync(name);

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { LOGIN } from "~/constants/pages";
 import CategoryForm from '../categoryForm';
 
 function UpdateCategory() {
-
+    let navigate = useNavigate();
     const[categories, setCategories] = useState({});
 
     // get value from index and pass to form
@@ -11,6 +12,9 @@ function UpdateCategory() {
     const {existCategory} = state;
     
     useEffect(() => {
+        if(localStorage.getItem("admin")==null) {
+            navigate(LOGIN)
+        }
         if(existCategory) {
             setCategories({
                 id: existCategory.id,

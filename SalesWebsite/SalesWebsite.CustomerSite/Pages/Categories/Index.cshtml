@@ -3,6 +3,7 @@
 @{
     ViewData["title"] = "Shepoo Wakanda  | Phân Loại ";
     ViewData["categories"] = @Model.categories;
+    ViewData["userName"] = @Request.Cookies["userName"];
     Layout = "layout/_CategoriesLayout";
 }
 
@@ -14,8 +15,7 @@
                     style=" background-color: #f94e30 !important;">
                 Phổ biến
             </button>
-            <button class="btn btn-light " type="submit"> Bán chạy</button>
-            <button id="price" class="btn btn-light ">Giá: giảm dần</button>
+            
         </div>
     </div>
     <div class="row">
@@ -27,14 +27,14 @@
             {
                 <div class="card col-sm-2 product">
                     <a href="../Products/Detail?id=@product.Id" class="">
-                        <img class="card-img-top" src="images/product/@product.image"
+                        <img class="card-img-top" src="@product.image"
                          alt="Card image cap">
                     </a>
                     <div class="card-body">
                         <p class="card-text"><b></b>@product.Name</p>
                         <span class="price">@product.Price đ</span><br>
 
-                        <span class="number">đã bán: @product.Sold K</span>
+                        <span class="number">Đã bán: @((float)product.Sold/1000) k</span>
 
                     </div>
                 </div>

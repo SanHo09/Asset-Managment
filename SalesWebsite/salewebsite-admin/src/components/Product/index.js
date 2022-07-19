@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { CREATE_PRODUCT } from "~/constants/pages";
+import { CREATE_PRODUCT, LOGIN } from "~/constants/pages";
 import { ASCENDING, DEFAULT_CATEGORY_SORT_COLUMN_NAME, DEFAULT_PAGE_LIMIT, DEFAULT_PRODUCT_SORT_COLUMN_NAME } from "~/constants/paging";
 import { getCategoriesRequest } from "~/services/categoriesService";
 import { getProductRequest } from "~/services/productService";
@@ -28,7 +28,9 @@ function ListProducts() {
     }
 
     useEffect(() => {
-        console.log('product mounted');
+        if(localStorage.getItem("admin")==null) {
+            navigate(LOGIN)
+          }
         const fetchDataAsync = async() => {
             let result = await getProductRequest(query);
             setProducts(result.data);

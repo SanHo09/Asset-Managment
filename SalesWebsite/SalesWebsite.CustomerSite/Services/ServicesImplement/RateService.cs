@@ -13,13 +13,13 @@ namespace SalesWebsite.CustomerSite.Services.ServicesImplement
             _clientFactory = clientFactory;
         }
 
-        public async Task AddRate(RateCreateRequest rateCreateRequest)
+        public async Task<bool> AddRateAsync(RateCreateRequest rateCreateRequest, string token)
         {
-            
             var client = _clientFactory.CreateClient(ServiceConstants.BACK_END_NAMED_CLIENT);
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
             var response = await client.PostAsJsonAsync(EndpointConstants.getRates, rateCreateRequest);
-            var result = await response.Content.ReadAsStringAsync();
-            Console.Write(result);
+            Console.Write(response.Content.ToString());
+            return response.IsSuccessStatusCode;
         }
 
        

@@ -5,6 +5,7 @@ using SalesWebsite.Models;
 using SalesWebsite.Shared.CreateRequest;
 using SalesWebsite.Shared.Dto.Customer;
 using SalesWebsite.ViewModels;
+using SalesWebsite.Shared.ResponseModels;
 
 namespace SalesWebsite.Backend.Services.ServiceImpl
 {
@@ -27,7 +28,7 @@ namespace SalesWebsite.Backend.Services.ServiceImpl
             return customerVm;
         }
 
-        public async Task<string> LoginAsync(CustomerLoginRequest customerLoginRequest)
+        public async Task<LoginResponse> LoginAsync(CustomerLoginRequest customerLoginRequest)
         {
             var customer = _context.Customers.FirstOrDefault(customer =>
                                             customer.UserName == customerLoginRequest.UserName);
@@ -45,15 +46,53 @@ namespace SalesWebsite.Backend.Services.ServiceImpl
 
             if (!_securityService.VerifiPasswordHash(customerLoginRequest.Password, passwordHandle))
             {
-                return "";
+                throw new Exception("Wrong password");
             }
 
-            return _securityService.CreateToken(customer);
+            return new LoginResponse
+            {
+                Token = _securityService.CreateToken(customer),
+                IsAdmin = customer.IsAdmin,
+                UserName = customer.UserName,
+                FullName = customer.FullName
+            };
         }
 
-        public Task<CustomerVm> RegisterAsync(CustomerCreateRequest customerCreateRequest)
+        public async Task<CustomerVm> RegisterAsync(CustomerCreateRequest customerCreateRequest)
         {
-            throw new NotImplementedException();
+            var customerCheck = _context.Customers.FirstOrDefault(customer =>
+                                            customer.UserName == customerCreateRequest.UserName);
+            if (customerCheck != null)
+            {
+                return null;
+            }
+            if(customerCreateRequest.Password != customerCreateRequest.ConfirmPassword)
+            {
+                throw new Exception("2 password Not equals"); 
+            }
+
+            var passwordHandle = _securityService.CreatePasswordHash(customerCreateRequest.Password);
+
+            var customer = new Customer()
+            {
+                UserName = customerCreateRequest.UserName,
+                PasswordSalt = passwordHandle.PasswordSalt,
+                PasswordHash = passwordHandle.PasswordHash,
+                Email = customerCreateRequest.Email,
+                FullName = customerCreateRequest.FullName,
+                IsAdmin = false,
+                Isdeleted = false,
+            };
+
+            await _context.Customers.AddAsync(customer);
+            _context.SaveChanges();
+            return new CustomerVm
+            {
+                Id = customer.Id,
+                Email = customer.UserName,
+                UserName = customer.UserName,
+                FullName = customer.FullName,
+            };
         }
     }
 }

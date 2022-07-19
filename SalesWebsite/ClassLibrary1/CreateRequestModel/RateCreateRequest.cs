@@ -12,6 +12,6 @@ namespace SalesWebsite.Shared.CreateRequest
         public float NumberOfStar { get; set; }
 
         public int ProductId { get; set; }
-        public int CustomerId { get; set; }
+        public string UserName { get; set; }
     }
 }

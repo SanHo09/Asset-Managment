@@ -37,6 +37,7 @@ function CategoryForm({initalCategoryForm = {...initialFormValues}}) {
     }
 
     const createCategoryAsync = async (form) => {
+        console.log(form.formValues);
         let data = await createCategoriesRequest(form.formValues)
         if (data)
         {
@@ -76,7 +77,7 @@ function CategoryForm({initalCategoryForm = {...initialFormValues}}) {
                     name='description' 
                 />
                 <br />
-                <button type="submit">Save</button>
+                <button className="btn btn-secondary" type="submit">Save</button>
             </Form>
             
         </Formik>

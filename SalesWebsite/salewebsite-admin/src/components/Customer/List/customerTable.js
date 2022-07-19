@@ -20,7 +20,6 @@ function CustomerTable( {customers, fetchData}) {
             <th>ID</th>
             <th>User Name</th>
             <th>Full Name</th>
-            <th>Password</th>
           </tr>
         </thead>
 
@@ -30,7 +29,6 @@ function CustomerTable( {customers, fetchData}) {
                 <th>{customer.id}</th>
                 <th>{customer.userName}</th>
                 <th>{customer.fullName}</th>
-                <th>{customer.password}</th>
             </tr>
           ))}
         </tbody>

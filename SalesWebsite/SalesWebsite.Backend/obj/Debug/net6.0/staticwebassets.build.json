@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "anqx3KF9QfL2is2a7AaK9lW9lJQR2xJgmRYBEyKWUwA=",
+  "Hash": "eg47oR6vbgNBwcwEUZ3u322bNGA7UIi27LV4ezY9aMs=",
   "Source": "SalesWebsite.Backend",
   "BasePath": "_content/SalesWebsite.Backend",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\aoKhoac.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Sang\\Desktop\\NashTech_2022_Training\\Rookie_ASM\\Rookies_Batch_5\\SalesWebsite\\SalesWebsite.Backend\\wwwroot\\images\\AoNam.jpg",
+      "SourceId": "SalesWebsite.Backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Sang\\Desktop\\NashTech_2022_Training\\Rookie_ASM\\Rookies_Batch_5\\SalesWebsite\\SalesWebsite.Backend\\wwwroot\\",
+      "BasePath": "_content/SalesWebsite.Backend",
+      "RelativePath": "images/AoNam.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\AoNam.jpg"
     },
     {
       "Identity": "C:\\Users\\Sang\\Desktop\\NashTech_2022_Training\\Rookie_ASM\\Rookies_Batch_5\\SalesWebsite\\SalesWebsite.Backend\\wwwroot\\images\\chẽm_duyênvcl.jpg",

@@ -6,7 +6,8 @@ namespace SalesWebsite.CustomerSite.Pages.Shared.Components.ProductRates.Rates
 {
     public class ProductRatesViewComponent : ViewComponent
     {
-        IRateService _rateService;
+        private readonly IRateService _rateService;
+
         public ProductVm ProductVm;
 
         public ProductRatesViewComponent(IRateService rateService)

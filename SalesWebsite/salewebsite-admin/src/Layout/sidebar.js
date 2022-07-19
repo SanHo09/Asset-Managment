@@ -1,9 +1,9 @@
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import "~/styles/sidebar.css"
 function Sidebar() {
     return (
-        <Container fluid className="sidebar" >
+        <Container fluid className="sidebar">
             <div className="sidebar-title">
                 ADMIN SIDE
             </div>

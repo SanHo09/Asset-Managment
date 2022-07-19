@@ -1,3 +1,6 @@
+export const LOGIN = '/login'
+export const HOME = '/home/*'
+
 export const CATEGORIES = '/';
 export const CREATE_CATEGORY = '/createCategory';
 export const UPDATE_CATEGORY = '/updateCategory/:id';

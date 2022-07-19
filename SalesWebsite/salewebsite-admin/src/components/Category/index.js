@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import CategoryTable from "./List/categoryTable"
 import { Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
-import { CREATE_CATEGORY } from "~/constants/pages"
+import { CREATE_CATEGORY, LOGIN } from "~/constants/pages"
 import { DEFAULT_PAGE_LIMIT,
         ASCENDING,
         DEFAULT_CATEGORY_SORT_COLUMN_NAME,
@@ -30,6 +30,9 @@ function ListCategories() {
     }
 
     useEffect(() => {
+        if(localStorage.getItem("admin")==null) {
+            navigate(LOGIN)
+        }
         console.log('mounted');
         const fetchData = async() => {
             let result = await getCategoriesRequest(query);

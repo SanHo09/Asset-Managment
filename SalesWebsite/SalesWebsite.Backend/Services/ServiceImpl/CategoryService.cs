@@ -26,8 +26,8 @@ namespace SalesWebsite.Backend.Services
         public async Task<PagedResponseDto<CategoryDto>> FindAllAsync(CategoryCriteriaDto categoryCriteriaDto)
         {
             var categoryQuery = _context.Categories
-                .Include(i => i.Products)
-                .Where(i => !i.IsDeleted)
+                .Include(category => category.Products.Where(product => !product.IsDeleted))
+                .Where(category => !category.IsDeleted)
                 .AsQueryable();
             // Lọc category theo tên
             categoryQuery = CategoryFilter(categoryQuery, categoryCriteriaDto);
@@ -51,7 +51,7 @@ namespace SalesWebsite.Backend.Services
         public async Task<CategoryVm> FindByID(int id)
         {
             var category = await _context.Categories
-                .Include(i => i.Products)
+                .Include(category => category.Products.Where(product => !product.IsDeleted))
                 .FirstOrDefaultAsync(i => i.Id == id && !i.IsDeleted);
             if (category == null)
             {

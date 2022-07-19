@@ -121,7 +121,8 @@ function ProductForm({initalProductForm = {...initialFormValues}}) {
                         optionLabel : category.name
                     }))}
                 />}
-                <button type="submit">Save</button>
+                <br /><br />
+                <button className='btn btn-secondary' type="submit">Save</button>
             </Form>
         </Formik>
     )

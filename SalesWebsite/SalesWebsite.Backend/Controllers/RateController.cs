@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ namespace SalesWebsite.Backend.Controllers
 {
     [Route("api/[controller]")]
     [EnableCors("AllowOrigins")]
+    [Authorize]
     [ApiController]
     public class RateController : ControllerBase
     {
@@ -25,7 +27,7 @@ namespace SalesWebsite.Backend.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateAsync(RateCreateRequest rateCreateRequest)
         {
-            Customer customer = await _context.Customers.FindAsync(rateCreateRequest.CustomerId);
+            Customer customer = await _context.Customers.FirstOrDefaultAsync(customer => customer.UserName == rateCreateRequest.UserName);
             Product product = await _context.Products.FindAsync(rateCreateRequest.ProductId);
             if(customer == null  || product == null)
             {
@@ -44,12 +46,14 @@ namespace SalesWebsite.Backend.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IEnumerable<Rate> GetRates()
         {
             return _context.Rates.ToList();
         }
 
         [HttpGet("{productId}")]
+        [AllowAnonymous]
         public IEnumerable<Rate> FindRateByProductId(int productId)
         {
             var rate = _context.Rates

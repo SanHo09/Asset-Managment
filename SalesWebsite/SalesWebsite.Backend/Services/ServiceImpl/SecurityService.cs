@@ -44,7 +44,7 @@ namespace SalesWebsite.Backend.Services.ServiceImpl
             List<Claim> claims = new List<Claim>()
             {
                 new Claim(ClaimTypes.Name, customer.UserName),
-                new Claim(ClaimTypes.Role, customer.IsAdmin ? "admin" : "customer"),
+                new Claim(ClaimTypes.Role, customer.IsAdmin ? "Admin" : "Customer"),
             };
 
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(tokenConfig));

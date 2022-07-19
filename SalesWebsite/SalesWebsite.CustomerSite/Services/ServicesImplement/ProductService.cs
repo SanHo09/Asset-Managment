@@ -17,9 +17,11 @@ namespace SalesWebsite.CustomerSite.Services.ServicesImplement
         public async Task<PagedResponseDto<ProductDto>> GetProductAsync(ProductCriteriaDto productCriteriaDto)
         {
             var client = _clientFactory.CreateClient(ServiceConstants.BACK_END_NAMED_CLIENT);
-            var getProductEndpoint = String.IsNullOrEmpty(productCriteriaDto.Search) ?
-                                        EndpointConstants.getProducts :
-                                        $"{EndpointConstants.getProducts}?Search={productCriteriaDto.Search}";
+            var getProductEndpoint = $"{EndpointConstants.getProducts}?Page={productCriteriaDto.Page}" +
+                                      $"&Limit={productCriteriaDto.Limit}";
+            getProductEndpoint += String.IsNullOrEmpty(productCriteriaDto.Search) ?
+                                        "" :
+                                        $"&Search={productCriteriaDto.Search}";
             var response = await client.GetAsync(getProductEndpoint);
             response.EnsureSuccessStatusCode();
             var pagedResponse = await response.Content.ReadAsAsync<PagedResponseDto<ProductDto>>();

@@ -9,7 +9,7 @@ export async function getProductRequest(query) {
     })
 }
 
-export function createProductRequest(productForm) {
+export async function createProductRequest(productForm) {
     const formData = new FormData();
     formData.append('IsDeleted','false')
     formData.append('Rate' ,0)
@@ -21,7 +21,7 @@ export function createProductRequest(productForm) {
     return requestService.axios.post(Endpoints.products, formData);
 }
 
-export function updateProductRequest(productForm) {
+export async function updateProductRequest(productForm) {
     const formData = new  FormData();
     formData.append('IsDeleted','false')
     formData.append('Rate' ,0)
@@ -32,6 +32,6 @@ export function updateProductRequest(productForm) {
     return requestService.axios.put(Endpoints.productId(productForm.id ?? - 1), formData);
 }
 
-export function deleteProductRequest(productId) {
+export async function deleteProductRequest(productId) {
     return requestService.axios.delete(Endpoints.productId(productId));
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "t0XVJ9MreiIkZpfZE62l92OmGRGgCPzh8dMNuic8V4U=",
+  "Hash": "WgnmILOzPx2TBw9J5+ToihdGKHnMvr0Xa7ZbJZvKBWw=",
   "Source": "SalesWebsite.CustomerSite",
   "BasePath": "_content/SalesWebsite.CustomerSite",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\categories.css"
+    },
+    {
+      "Identity": "C:\\Users\\Sang\\Desktop\\NashTech_2022_Training\\Rookie_ASM\\Rookies_Batch_5\\SalesWebsite\\SalesWebsite.CustomerSite\\wwwroot\\css\\Customer.css",
+      "SourceId": "SalesWebsite.CustomerSite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Sang\\Desktop\\NashTech_2022_Training\\Rookie_ASM\\Rookies_Batch_5\\SalesWebsite\\SalesWebsite.CustomerSite\\wwwroot\\",
+      "BasePath": "_content/SalesWebsite.CustomerSite",
+      "RelativePath": "css/Customer.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Customer.css"
     },
     {
       "Identity": "C:\\Users\\Sang\\Desktop\\NashTech_2022_Training\\Rookie_ASM\\Rookies_Batch_5\\SalesWebsite\\SalesWebsite.CustomerSite\\wwwroot\\css\\detail.css",

@@ -39,6 +39,7 @@ namespace SalesWebsite.Backend.Services.ServiceImpl
                 .paginateAsync(productCriteriaDto);
 
             var productDto = _mapper.Map<IEnumerable<ProductDto>>(pagedProducts.Items);
+
             return new PagedResponseDto<ProductDto>
             {
                 CurrentPage = pagedProducts.CurrentPage,

@@ -47,36 +47,42 @@
                             Hỗ Trợ
                         </a>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#!signUp">
+                    @if(Context.Request.Cookies["userName"] == null)
+                    {
+                        <li class="nav-item">
+                        <a class="nav-link"  href="/Customer/Register">
 
                             Đăng Ký      |
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#!signIn">
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Customer/Login">
 
-                            Đăng Nhập
-                        </a>
-                    </li>
-                    <li class="nav-item">
+                                Đăng Nhập
+                            </a>
+                        </li>
+                    }
+                    @if(Context.Request.Cookies["userName"] != null){
+                        <li class="nav-item">
                         <a class="nav-link" aria-current="page">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                             </svg>
-                            {{user}}
+                            @Context.Request.Cookies["userName"]
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#!signIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-                                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                            </svg>
-                            Đăng Xuất
-                        </a>
-                    </li>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/Customer/Login">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                </svg>
+                                Đăng Xuất
+                            </a>
+                        </li>
+                    }
+                    
+                    
                 </ul>
             </span>
         </div>
@@ -99,8 +105,8 @@
         <div class="col-sm-6">
             <div class=" input-group">
                 <input type="text" class="form-control" placeholder="FREESHIP ĐẾN 0K" aria-label="Recipient's username"
-                       aria-describedby="button-addon2">
-                <button class="btn" type="button" id="button-addon2" style="border: 1px solid white;">
+                       aria-describedby="button-addon2" id="find">
+                <button class="btn" type="button" id="button-addon2" style="border: 1px solid white;" onclick="find()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-search"
                          viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -127,3 +133,10 @@
     <a class="nav-link" href="/categories">Mỹ phẩm</a>
     <a class="nav-link" href="/categories">Nước tăng lực</a>
 </nav>
+
+<script>
+    function find() {
+        var value = document.getElementById("find").value;
+        window.location.href = 'https://localhost:7199/Products?searchString='+value;
+    }
+</script>

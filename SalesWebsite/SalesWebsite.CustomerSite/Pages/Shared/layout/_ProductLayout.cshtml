@@ -44,10 +44,10 @@
         <div class="row justify-content-center">
             <nav aria-label="Page navigation example">
                 <ul class="pagination" style="margin-left: 625px;">
-                    <li class="page-item"><a class="page-link"> First </a></li>
-                    <li class="page-item"><a class="page-link"> Prev </a></li>
-                    <li class="page-item"><a class="page-link"> Next </a></li>
-                    <li class="page-item"><a class="page-link"> last </a></li>
+                    <li class="page-item"><a class="page-link" href="/?pagedIndex=1"> First </a></li>
+                    <li class="page-item"><a class="page-link" href="/?pagedIndex=@(int.Parse( Context.Request.Cookies["CurrentPage"]) -1)"> Prev </a></li>
+                    <li class="page-item"><a class="page-link" href="/?pagedIndex=@(int.Parse( Context.Request.Cookies["CurrentPage"]) +1)"> Next </a></li>
+                    <li class="page-item"><a class="page-link" href="/?pagedIndex=@Context.Request.Cookies["ProductTotalPage"]"> last </a></li>
 
                 </ul>
             </nav>

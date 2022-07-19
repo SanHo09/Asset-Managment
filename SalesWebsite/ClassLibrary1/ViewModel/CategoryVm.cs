@@ -1,6 +1,4 @@
-﻿
-
-namespace SalesWebsite.ViewModels
+﻿namespace SalesWebsite.ViewModels
 {
     public class CategoryVm
     {

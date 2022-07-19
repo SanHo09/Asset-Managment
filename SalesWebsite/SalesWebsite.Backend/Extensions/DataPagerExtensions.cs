@@ -37,7 +37,7 @@ namespace SalesWebsite.Backend.Extensions
             paged.Items = await query.Skip(startRow)
                 .Take(paged.PageSize)
                 .ToListAsync();
-            paged.TotalItems = paged.Items.Count;
+            paged.TotalItems = await query.CountAsync();
             paged.TotalPages = (int)Math.Ceiling(paged.TotalItems / (double)paged.PageSize);
 
             return paged;
