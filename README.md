@@ -1,1 +1,1 @@
-.NET Assignment Using + ASP.NET (Core) + Entity Framework Core + ReactJS
+.NET project Using + ASP.NET (Core) + Entity Framework Core + ReactJS
